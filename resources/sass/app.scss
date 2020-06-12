@@ -17,3 +17,9 @@ $fa-font-path: "../webfonts";
 
 // Shards UI
 @import '~shards-ui/dist/css/shards.min.css';
+
+// Select2
+@import '~select2/dist/css/select2.min.css';
+@import '../css/select2-bootstrap4.min.css';
+
+@import '../css/custom.css';

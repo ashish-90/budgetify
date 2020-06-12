@@ -12,6 +12,7 @@ try {
 
     require('bootstrap');
     require('shards-ui');
+    require('select2');
 
 } catch (e) {}
 

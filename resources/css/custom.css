@@ -1,0 +1,43 @@
+@media(min-width: 768px) {
+    .cover-block-1 {
+        width: 67%;
+    }
+    .cover-block-2 {
+        width: 32%;
+    }
+}
+@media(max-width: 767px) {
+    .calculator-element-2 {
+        width: 80%;
+    }
+    .calculator-element-3 {
+        width: 82%;
+    }
+}
+@media(min-width: 768px) and (max-width: 991px) {
+    .calculator-element-2 {
+        width: 83%;
+    }
+    .calculator-element-3 {
+        width: 69%;
+    }
+}
+@media(min-width: 992px) and (max-width: 1199px) {
+    .calculator-element-2 {
+        width: 81%;
+    }
+    .calculator-element-3 {
+        width: 65%;
+    }
+}
+@media(min-width: 1200px) {
+    .calculator-element-2 {
+        width: 84%;
+    }
+    .calculator-element-3 {
+        width: 70%;
+    }
+}
+.select2-container {
+    top: 12px;
+}
