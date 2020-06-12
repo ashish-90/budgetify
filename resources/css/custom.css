@@ -1,3 +1,9 @@
+body {
+    background: #fafafa;
+}
+.bg-image {
+    background-image: url('../../public/img/bg_pattern.png');
+}
 @media(min-width: 768px) {
     .cover-block-1 {
         width: 67%;
