@@ -4,6 +4,28 @@ body {
 .bg-image {
     background-image: url('../../public/img/bg_pattern.png');
 }
+.logo-white {
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.welcome-budgetify {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    background: url('../../public/img/welcome-cover.jpg') no-repeat center center fixed;
+    background-size: cover;
+}
+.welcome-budgetify:before {
+    position: absolute;
+    z-index: 0;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .8;
+    background: #007bff;
+}
 @media(min-width: 768px) {
     .cover-block-1 {
         width: 67%;

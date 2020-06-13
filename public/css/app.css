@@ -10,6 +10,28 @@
 .bg-image {
     background-image: url(/images/bg_pattern.png?cdeb83f7b245e8410a7961653cf58748);
 }
+.logo-white {
+    border-top-right-radius: 15px;
+    border-bottom-left-radius: 15px;
+}
+.welcome-budgetify {
+    position: relative;
+    height: 100vh;
+    min-height: 700px;
+    background: url(/images/welcome-cover.jpg?8ca120f7797b4d86d1e77540b4a009eb) no-repeat center center fixed;
+    background-size: cover;
+}
+.welcome-budgetify:before {
+    position: absolute;
+    z-index: 0;
+    content: '';
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    opacity: .8;
+    background: #007bff;
+}
 @media(min-width: 768px) {
     .cover-block-1 {
         width: 67%;

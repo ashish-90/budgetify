@@ -1,150 +1,90 @@
-@extends('layouts.skeleton')
-
-@section('content')
-<section class="py-3 bg-white bg_img">
-    <div class="container-fluid">
-        <div class="row">
-            <div class="col text-center">
-                <div class="budget__title">
-                    <h1 class="h4 mb-3">Available Budget in <span class="budget__title--month">%Month%</span>:</h1>
-                </div>
-                <div class="budget__value h2">+ 2,345.64</div>
-                <div class="container">
-                    <div class="row mb-2">
-                        <div class="col-8 col-md-6 col-lg-4 mx-auto bg-success py-2 py-md-3 clearfix text-white rounded budget__income">
-                            <div class="float-left budget__income--text">
-                                <strong>Income</strong>
-                            </div>
-                            <div class="float-right">
-                                <div class="budget__income--value d-inline-block">+ 4,300.00</div>
-                                <div class="budget__income--percentage d-inline-block">&nbsp;</div>
+<!DOCTYPE html>
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <title>Budgetify</title>
+        <link rel="stylesheet" href="{{ asset('css/app.css') }}">
+    </head>
+    <body>
+        <div class="welcome-budgetify d-flex justify-content-center flex-column">
+            <div class="container">
+                <nav class="navbar navbar-expand navbar-light fixed-top">
+                    <div class="container">
+                        <a class="navbar-brand d-flex" href="{{ '/' }}">
+                            <img src="{{ asset('img/budgetify_logo_white.png') }}" alt="Example Navbar 1" class="mr-1 logo-white" height="30">
+                            <span class="align-self-end text-white" style="font-size: 1.1rem;">udgetify</span>
+                        </a>
+                    </div>
+                </nav>
+            </div>
+            <div class="inner-wrapper mt-auto mb-auto container">
+                <div class="row">
+                    <div class="col-md-6 col-xl-7 pt-sm-5 mb-5 mb-md-0">
+                        <h1 class="welcome-heading display-4 text-white">Budgetify</h1>
+                        <p class="text-white">Track expenses and manage your money effectively.</p>
+                        <a href="{{ route('register') }}" class="btn btn-lg btn-outline-white btn-pill align-self-center">Register Now</a>
+                    </div>
+                    <div class="col-md-6 col-xl-5">
+                        <div class="card">
+                            <div class="card-body">
+                                <form method="POST" action="{{ route('login') }}" class="mt-3">
+                                    @csrf
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="email">Email</label>
+                                                <input id="email" type="email" class="form-control @error('email') is-invalid @enderror" name="email" value="{{ old('email') }}" required autocomplete="email" autofocus>
+                                                @error('email')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <label for="password">Password</label>
+                                                <input id="password" type="password" class="form-control @error('password') is-invalid @enderror" name="password" required autocomplete="current-password">
+                                                @error('password')
+                                                    <span class="invalid-feedback" role="alert">
+                                                        <strong>{{ $message }}</strong>
+                                                    </span>
+                                                @enderror
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group mb-4">
+                                                <div class="custom-control custom-checkbox d-block">
+                                                    <input type="checkbox" class="custom-control-input mb-4" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                                    <label class="custom-control-label" for="remember">Remember Me</label>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="row">
+                                        <div class="col">
+                                            <div class="form-group">
+                                                <button type="submit" class="btn btn-primary btn-pill">Login</button>
+                                                @if (Route::has('password.request'))
+                                                    <a class="btn btn-link" href="{{ route('password.request') }}">
+                                                        {{ __('Forgot Your Password?') }}
+                                                    </a>
+                                                @endif
+                                            </div>
+                                        </div>
+                                    </div>
+                                </form>
                             </div>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-8 col-md-6 col-lg-4 mx-auto bg-danger py-2 py-md-3 clearfix text-white rounded budget__expenses">
-                            <div class="float-left budget__expenses--text">
-                                <strong>Expenses</strong>
-                            </div>
-                            <div class="float-right">
-                                <div class="budget__expenses--value d-inline-block">- 1,954.36</div>
-                                <div class="udget__expenses--percentage d-inline-block badge badge-light">45%</div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
             </div>
         </div>
-    </div>
-</section>
-<section class="pt-2 pb-3 bg-white bg_img">
-    <div class="container">
-        <div class="row">
-            <div class="col-11 col-md-12 col-lg-8 mx-auto text-center">
-                <div class="d-block d-md-inline-block cover-block-1">
-                    <div class="d-inline-block px-1 calculator-element-1">
-                        <select id="inputState" class="form-control mb-2">
-                            <option selected="">+</option>
-                            <option>-</option>
-                        </select>
-                    </div>
-                    <div class="d-inline-block px-1 px-md-auto calculator-element-2">
-                        <input type="text" class="form-control mb-2" id="inlineFormInputName2" placeholder="Description">
-                    </div>
-                </div>
-                <div class="d-block d-md-inline-block cover-block-2">
-                    <div class="d-inline-block px-1 px-md-auto calculator-element-3">
-                        <input type="number" class="form-control mb-2" id="inlineFormInputName2" placeholder="Value">
-                    </div>
-                    <div class="d-inline-block px-1 calculator-element-4">
-                        <button class="btn btn-outline-primary mb-2 mt-1"><i class="fas fa-check"></i></button>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</section>
-<section class="py-4">
-    <div class="container">
-        <div class="row">
-            <div class="col-md-6 px-md-2 px-lg-3 px-xl-4">
-                <div class="card">
-                    <div class="card-body p-3 p-lg-4">
-                        <h3 class="text-success">Income</h3>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item px-0 clearfix">
-                                <div class="float-left">
-                                    <span class="">Income 1</span>
-                                </div>
-                                <div class="float-right">
-                                    <span class="text-success mr-2">+ 2000.00</span>
-                                    <span class="badge badge-pill border border-success bg-white text-success"><i class="fas fa-times"></i></span>
-                                </div>
-                            </li>
-                            <li class="list-group-item px-0 clearfix">
-                                <div class="float-left">
-                                    <span class="">Income 1</span>
-                                </div>
-                                <div class="float-right">
-                                    <span class="text-success mr-2">+ 2000.00</span>
-                                    <span class="badge badge-pill border border-success bg-white text-success"><i class="fas fa-times"></i></span>
-                                </div>
-                            </li>
-                            <li class="list-group-item px-0 clearfix">
-                                <div class="float-left">
-                                    <span class="">Income 1</span>
-                                </div>
-                                <div class="float-right">
-                                    <span class="text-success mr-2">+ 2000.00</span>
-                                    <span class="badge badge-pill border border-success bg-white text-success"><i class="fas fa-times"></i></span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <hr class="d-md-none">
-            </div>
-            <div class="col-md-6 px-md-2 px-lg-3 px-xl-4">
-                <div class="card">
-                    <div class="card-body p-3 p-lg-4">
-                        <h3 class="text-danger">Expenses</h3>
-                        <ul class="list-group list-group-flush">
-                            <li class="list-group-item px-0 clearfix">
-                                <div class="float-left">
-                                    <span class="">Expense 1</span>
-                                </div>
-                                <div class="float-right">
-                                    <span class="text-danger mr-2">+ 2000.00</span>
-                                    <span class="badge badge-danger">60%</span>
-                                    <span class="badge badge-pill border border-danger bg-white text-danger ml-2"><i class="fas fa-times"></i></span>
-                                </div>
-                            </li>
-                            <li class="list-group-item px-0 clearfix">
-                                <div class="float-left">
-                                    <span class="">Expense 1</span>
-                                </div>
-                                <div class="float-right">
-                                    <span class="text-danger mr-2">+ 2000.00</span>
-                                    <span class="badge badge-danger">60%</span>
-                                    <span class="badge badge-pill border border-danger bg-white text-danger ml-2"><i class="fas fa-times"></i></span>
-                                </div>
-                            </li>
-                            <li class="list-group-item px-0 clearfix">
-                                <div class="float-left">
-                                    <span class="">Expense 1</span>
-                                </div>
-                                <div class="float-right">
-                                    <span class="text-danger mr-2">+ 2000.00</span>
-                                    <span class="badge badge-danger">60%</span>
-                                    <span class="badge badge-pill border border-danger bg-white text-danger ml-2"><i class="fas fa-times"></i></span>
-                                </div>
-                            </li>
-                        </ul>
-                    </div>
-                </div>
-                <hr class="d-md-none">
-            </div>
-        </div>
-    </div>
-</section>
-@endsection
+        <script src="{{ 'js/app.js' }}"></script>
+    </body>
+</html>
