@@ -1,4 +1,4 @@
-@extends('layouts.skeleton')
+@extends('layouts.app')
 
 @section('content')
 <section class="py-3 bg-white">
@@ -38,7 +38,7 @@
                         <div class="col-md-10 col-lg-8 mx-auto">
                             <div class="form-group mb-4">
                                 <div class="custom-control custom-checkbox d-block">
-                                    <input type="checkbox" class="custom-control-input mb-4" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
+                                    <input type="checkbox" class="custom-control-input" id="remember" name="remember" {{ old('remember') ? 'checked' : '' }}>
                                     <label class="custom-control-label" for="remember">Remember Me</label>
                                 </div>
                             </div>
@@ -56,13 +56,13 @@
                             </div>
                         </div>
                     </div>
-                  </form>
-                  <div class="row">
-                      <div class="col-md-11 col-lg-8 offset-md-1 offset-lg-2">
+                </form>
+                <div class="row">
+                    <div class="col-md-11 col-lg-8 offset-md-1 offset-lg-2">
                         <hr>
                         <p>Don't have an account ? <a class="btn btn-link" href="{{ route('register') }}">Register Now</a></p>
-                      </div>
-                  </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>
