@@ -74,6 +74,16 @@
 }
 .select2-container {
     top: 12px;
+}
+.list-group-item .item__delete {
+    cursor: pointer;
+    visibility: hidden;
+    opacity: 0;
+    transition: visibility 0s, opacity 0.5s linear;
+}
+.list-group-item:hover .item__delete { 
+    visibility: visible;
+    opacity: 1;
 }@charset "UTF-8";
 
 /*!
