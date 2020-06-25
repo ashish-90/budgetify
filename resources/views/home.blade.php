@@ -50,7 +50,7 @@
                             </div>
                             <div class="float-right">
                                 <div class="budget__expenses--value d-inline-block">- 1,954.36</div>
-                                <div class="udget__expenses--percentage d-inline-block badge badge-light">45%</div>
+                                <div class="budget__expenses--percentage d-inline-block badge badge-light">45%</div>
                             </div>
                         </div>
                     </div>
@@ -88,22 +88,12 @@
 </section>
 <section class="py-4">
     <div class="container">
-        <div class="row">
+        <div class="row inc-exp-container">
             <div class="col-md-6 px-md-2 px-lg-3 px-xl-4">
                 <div class="card">
                     <div class="card-body p-3 p-lg-4 income">
                         <h3 class="text-success income__title">Income</h3>
-                        <ul class="list-group list-group-flush income__list">
-                            {{-- <li class="list-group-item px-0 clearfix" id="income-0">
-                                <div class="float-left">
-                                    <span class="item__description">Income 1</span>
-                                </div>
-                                <div class="float-right">
-                                    <span class="text-success mr-2 item__value">+ 2000.00</span>
-                                    <span class="badge badge-pill border border-success bg-white text-success item__delete"><i class="fas fa-times"></i></span>
-                                </div>
-                            </li> --}}
-                        </ul>
+                        <ul class="list-group list-group-flush income__list"></ul>
                     </div>
                 </div>
                 <hr class="d-md-none">
@@ -112,18 +102,7 @@
                 <div class="card ">
                     <div class="card-body p-3 p-lg-4 expenses">
                         <h3 class="text-danger expenses__title">Expenses</h3>
-                        <ul class="list-group list-group-flush expenses__list">
-                            {{-- <li class="list-group-item px-0 clearfix" id="expense-0">
-                                <div class="float-left">
-                                    <span class="item__description">Expense 1</span>
-                                </div>
-                                <div class="float-right">
-                                    <span class="text-danger mr-2 item__value">+ 2000.00</span>
-                                    <span class="badge badge-danger item__percentage">60%</span>
-                                    <span class="badge badge-pill border border-danger bg-white text-danger ml-2 item__delete"><i class="fas fa-times"></i></span>
-                                </div>
-                            </li> --}}
-                        </ul>
+                        <ul class="list-group list-group-flush expenses__list"></ul>
                     </div>
                 </div>
                 <hr class="d-md-none">
@@ -140,13 +119,7 @@
             minimumResultsForSearch: Infinity,
             theme: 'bootstrap4'
         });
-        
     });
-    // $('.list-group-item').hover(function(){
-    //         $(this).css("background-color", "yellow");
-    //         }, function(){
-    //         $(this).css("background-color", "pink");
-    //     });
 </script>
 <script src="{{ asset('js/calculator.js') }}"></script>
 @endsection
