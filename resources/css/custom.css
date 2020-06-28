@@ -71,11 +71,24 @@ body {
 }
 .list-group-item .item__delete {
     cursor: pointer;
-    visibility: hidden;
-    opacity: 0;
-    transition: visibility 0s, opacity 0.5s linear;
 }
-.list-group-item:hover .item__delete { 
-    visibility: visible;
-    opacity: 1;
+.form-control.is-valid,
+.form-control.is-invalid {
+    background-image: none;
+}
+.select2-container--bootstrap4 .select2-selection.select2-selection--single {
+    border: 1px solid #17c671;
+}
+.select2-container--bootstrap4 .select2-selection--single {
+    border: 1px solid #c4183c;
+    border-radius: .25rem;
+}
+.select2-container--bootstrap4.select2-container--focus .select2-selection {
+    border-color: #17c671;
+}
+.form-control.is-valid:focus,
+.form-control.is-invalid:focus,
+.btn-outline-success:focus,
+.btn-outline-danger:focus {
+    box-shadow: none !important;
 }

@@ -30,10 +30,10 @@
                 <div class="budget__title">
                     <h1 class="h4 mb-3">Available Budget in <span class="budget__title--month">%Month%</span>:</h1>
                 </div>
-                <div class="budget__value h2">+ 2,345.64</div>
+                <div class="budget__value h2">+ 0.00</div>
                 <div class="container">
                     <div class="row mb-2">
-                        <div class="col-8 col-md-6 col-lg-4 mx-auto bg-success py-2 py-md-3 clearfix text-white rounded budget__income">
+                        <div class="col-8 col-md-6 col-lg-4 mx-auto bg-success py-2 clearfix text-white rounded budget__income">
                             <div class="float-left budget__income--text">
                                 <strong>Income</strong>
                             </div>
@@ -44,7 +44,7 @@
                         </div>
                     </div>
                     <div class="row">
-                        <div class="col-8 col-md-6 col-lg-4 mx-auto bg-danger py-2 py-md-3 clearfix text-white rounded budget__expenses">
+                        <div class="col-8 col-md-6 col-lg-4 mx-auto bg-danger py-2 clearfix text-white rounded budget__expenses">
                             <div class="float-left budget__expenses--text">
                                 <strong>Expenses</strong>
                             </div>
@@ -59,7 +59,7 @@
         </div>
     </div>
 </section>
-<section class="pt-2 pb-3 bg-white bg_img">
+<section class="pb-3 bg-white bg_img">
     <div class="container">
         <div class="row add">
             <div class="col-11 col-md-12 col-lg-8 mx-auto text-center add__container">
@@ -71,15 +71,15 @@
                         </select>
                     </div>
                     <div class="d-inline-block px-1 px-md-auto calculator-element-2">
-                        <input type="text" class="form-control mb-2 add__description" id="" placeholder="Description">
+                        <input type="text" class="form-control mb-2 is-valid add__description" id="" placeholder="Description">
                     </div>
                 </div>
                 <div class="d-block d-md-inline-block cover-block-2">
                     <div class="d-inline-block px-1 px-md-auto calculator-element-3">
-                        <input type="number" class="form-control mb-2 add__value" id="" placeholder="Value">
+                        <input type="number" class="form-control mb-2 is-valid add__value" id="" placeholder="Value">
                     </div>
                     <div class="d-inline-block px-1 calculator-element-4">
-                        <button class="btn btn-outline-primary mb-2 mt-1 add__btn"><i class="fas fa-check"></i></button>
+                        <button class="btn btn-outline-success mb-2 mt-1 add__btn"><i class="fas fa-check"></i></button>
                     </div>
                 </div>
             </div>
@@ -92,7 +92,7 @@
             <div class="col-md-6 px-md-2 px-lg-3 px-xl-4">
                 <div class="card">
                     <div class="card-body p-3 p-lg-4 income">
-                        <h3 class="text-success income__title">Income</h3>
+                        <h4 class="text-success income__title">Income</h4>
                         <ul class="list-group list-group-flush income__list"></ul>
                     </div>
                 </div>
@@ -101,7 +101,7 @@
             <div class="col-md-6 px-md-2 px-lg-3 px-xl-4">
                 <div class="card ">
                     <div class="card-body p-3 p-lg-4 expenses">
-                        <h3 class="text-danger expenses__title">Expenses</h3>
+                        <h4 class="text-danger expenses__title">Expenses</h4>
                         <ul class="list-group list-group-flush expenses__list"></ul>
                     </div>
                 </div>
